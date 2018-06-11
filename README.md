@@ -1,41 +1,18 @@
-# Machine Learning Engineer Nanodegree
-# Supervised Learning
-## Project: Finding Donors for CharityML
+### Supervised Learning
+# Predicting Income from Census Data
 
-### Install
+------
 
-This project requires **Python 2.7** and the following Python libraries installed:
+![census](http://funkydigitalagency.co.uk/wp-content/uploads/2016/04/Charity-Hands.png)
 
-- [NumPy](http://www.numpy.org/)
-- [Pandas](http://pandas.pydata.org)
-- [matplotlib](http://matplotlib.org/)
-- [scikit-learn](http://scikit-learn.org/stable/)
+## Overview  
 
-You will also need to have software installed to run and execute an [iPython Notebook](http://ipython.org/notebook.html)
+In this project, we employ several supervised learning algorithms to accurately model individuals' income using data collected from the 1994 U.S. Census. We choose the best candidate algorithm from preliminary results and further optimize this algorithm to best model the data. Our goal with this implementation is to construct a model that accurately predicts whether an individual makes more than $50,000. This sort of task can arise in a non-profit setting, where organizations survive on donations. Understanding an individual's income can help a non-profit better understand how large donation to request, or whether or not they should reach out, to begin. While it can be difficult to determine an individual's general income bracket directly from public sources, we can infer this value from other publicly available features.
 
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
 
-### Code
+## Dataset
 
-Template code is provided in the `finding_donors.ipynb` notebook file. You will also be required to use the included `visuals.py` Python file and the `census.csv` dataset file to complete your work. While some code has already been implemented to get you started, you will need to implement additional functionality when requested to successfully complete the project. Note that the code included in `visuals.py` is meant to be used out-of-the-box and not intended for students to manipulate. If you are interested in how the visualizations are created in the notebook, please feel free to explore this Python file.
-
-### Run
-
-In a terminal or command window, navigate to the top-level project directory `finding_donors/` (that contains this README) and run one of the following commands:
-
-```bash
-ipython notebook finding_donors.ipynb
-```  
-or
-```bash
-jupyter notebook finding_donors.ipynb
-```
-
-This will open the iPython Notebook software and project file in your browser.
-
-### Data
-
-The modified census dataset consists of approximately 32,000 data points, with each datapoint having 13 features. This dataset is a modified version of the dataset published in the paper *"Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid",* by Ron Kohavi. You may find this paper [online](https://www.aaai.org/Papers/KDD/1996/KDD96-033.pdf), with the original dataset hosted on [UCI](https://archive.ics.uci.edu/ml/datasets/Census+Income).
+The modified census dataset consists of approximately 32,000 data points, with each data point having 13 features. This dataset is a modified version of the dataset published in the paper *"Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid",* by Ron Kohavi. You may find this paper [online](https://www.aaai.org/Papers/KDD/1996/KDD96-033.pdf), with the original dataset hosted on [UCI](https://archive.ics.uci.edu/ml/datasets/Census+Income).
 
 **Features**
 - `age`: Age
@@ -54,3 +31,31 @@ The modified census dataset consists of approximately 32,000 data points, with e
 
 **Target Variable**
 - `income`: Income Class (<=50K, >50K)
+
+## Models
+
+The three models that seem appropriate for the specific problem and will be evaluated are: 
+- Logistic Regression
+- Support Vector Machines (SVM)
+- Gradient Boosting  
+
+After evaluating their performance, we concluded that Gradient Boosting is the most appropriate
+
+![models](images/plots.png)
+
+## Results
+
+By fine-tuning its parameters we were able to achieve:  
+- Accuracy Score: 0.8719
+- F-score: 0.7547  
+(both on the testing data)  
+
+We were also able to conclude on the five most important features.  
+
+![features](images/top_5.png)
+
+-----
+
+#### Notes
+- Adapted from a Supervised Learning assignement during my study for Udacity's [Machine Learning Engineer NanoDegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009t)  
+- The template and helper code provided by Udacity and can be found on [this](https://github.com/udacity/machine-learning/tree/master/projects/finding_donors) GitHub repository.
